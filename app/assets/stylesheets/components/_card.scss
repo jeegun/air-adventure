@@ -1,0 +1,39 @@
+.cards-and-map {
+  display: flex;
+  padding: 20px;
+  background-color: rgb(240,240,240);
+}
+
+.card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px
+}
+
+.create {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.card-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 30px;
+  margin: 20px;
+}
+
+.card-show > img {
+  width: 100%;
+  height: 50%
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75ch;
+  font-style: italic;
+}

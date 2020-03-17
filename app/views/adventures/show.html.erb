@@ -1,14 +1,44 @@
 <!-- IMAGE GOES HERE -->
-<h2><%= @adventure.name %></h2>
-<ul>
-  <li><%= @adventure.number_of_guests %></li>
-  <li><%= @adventure.location %></li> <!-- EVENTUALLY MAKE THIS INTO MAP -->
-  <li><%= @adventure.languages %></li>
-  <li><%= @adventure.description %></li>
-</ul>
-<br>
-<!-- <%#= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
-<%= link_to 'Back to list', adventures_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card-show">
+        <img src="https://lonelyplanetimages.imgix.net/copilot/images/interest/adventure-travel.jpg?auto=compress&h=800" alt="">
+        <h2><%= @adventure.name %></h2>
+          <li><%= @adventure.number_of_guests %></li>
+          <li><%= @adventure.languages %></li>
+          <li><%= @adventure.description %></li>
+      </div>
+      <div class="card-show">
+        <h3>Meetup point for your adventure:</h3>
+        <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
+        <img src="https://lh3.googleusercontent.com/-bQzIWFMAYus/WXy3WDcphBI/AAAAAAAAAMs/unOi6HiEoi4VWaM0WiP5q32q9zDbIhUvwCLcBGAs/s1600/7-29-2017%2B11-14-59%2BAM.jpg" alt="">
+      </div>
+
+      <div class="card-show">
+        <%= link_to 'Back to list', adventures_path, class: "btn btn-warning w-100"%>
+      </div>
+
+    </div>
+
+
+    <div class="col-4">
+      <div class="card-show">
+        <h3>X€</h3>
+        <p>(Price per day)</p>
+        <h4> Start date </h4>
+          <p>ADD FORM</p>
+        <h4> End date date </h4>
+          <p>ADD FORM</p>
+        <a href="#" class="btn btn-primary w-100">Request booking</a>
+      </div>
+    </div>
+  </div>
+  <!-- <%#= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
+</div>
+
+
 
 <!-- t.integer "number_of_guests"
 t.string "location"

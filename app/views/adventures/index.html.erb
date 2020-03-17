@@ -1,14 +1,44 @@
-<ul>
-  <% @adventures.each do |adventure| %>
-  <li>
-    <h3><%= adventure.name %></h3>
-    <p><%= adventure.location %></p>
-    <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
-    <p><%= adventure.price %></p>
-    <p>Number of guests: <%= adventure.number_of_guests %></p>
-  </li>
-  <% end %>
-</ul>
 
-<%= link_to "Create adventure", new_adventure_path  %>
+<div class="cards-and-map">
+  <div class="container-fluid">
+    <div class="adventure-cards">
+       <div class="row">
+        <div class="card create w-100">
+          <%= link_to "Create a new adventure", new_adventure_path, class: "btn btn-warning w-100" %>
+         </div>
+       </div>
+
+      <div class="row">
+        <% @adventures.each do |adventure| %>
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="https://www.fluxmagazine.com/wp-content/uploads/2019/07/Adventure-Web-1.jpg" class="card-img-top" alt="...">
+<!--               <#%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %> -->
+              <div class="card-body">
+                <h3 class="card-title"> <strong><%= adventure.name %></strong></h3>
+                <p class="card-text"><%= adventure.description %></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Location: <strong><%= adventure.location %></strong></li>
+                <li class="list-group-item">Price: <strong><%= adventure.price %> euros / day</strong></li>
+                <li class="list-group-item">Max # of participants: <strong><%= adventure.number_of_guests %></strong></li>
+              </ul>
+              <div class="card-body">
+                  <%= link_to "Go on an adventure!", adventure, class: "btn btn-primary w-100" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="map">
+    <img src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="">
+  </div>
+</div>
+
+
+
+
 

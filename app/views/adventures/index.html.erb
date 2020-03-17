@@ -1,0 +1,11 @@
+<ul>
+  <% @adventures.each do |adventure| %>
+  <li>
+    <p><%= adventure.name %></p>
+    <p><%= adventure.location %></p>
+    <p><%= adventure.price %></p>
+    <p><%= adventure.description %></p>
+    <p>Available languages: <%= adventure.languages %></p>
+  </li>
+</ul>
+

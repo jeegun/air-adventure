@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts "cleaning database"
+
+Adventure.destroy_all
+User.destroy_all
+
+puts "creating user"
+
+user = User.new
+user.email = 'test.marco@example.com'
+user.password = 'valid_passwordnice'
+user.password_confirmation = 'valid_passwordnice'
+user.save!
+
+puts "user created"
+
+puts "creating adventures"
+
+20.times do
+  adventure = Adventure.new(
+    number_of_guests: rand(0..6),
+    location: Faker::Address.full_address,
+    price: rand(20..987),
+    languages: "English",
+    description: Faker::Lorem.paragraph,
+    user: user,
+    name: Faker::FunnyName.name
+  )
+  adventure.save!
+end
+
+
+puts "I am done"

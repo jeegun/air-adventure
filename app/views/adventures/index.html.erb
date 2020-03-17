@@ -6,6 +6,10 @@
     <p><%= adventure.price %></p>
     <p><%= adventure.description %></p>
     <p>Available languages: <%= adventure.languages %></p>
+    <p>Number of guests: <%= adventure.number_of_guests %></p>
   </li>
+  <% end %>
 </ul>
+
+<%= link_to "Create adventure", new_adventure_path  %>
 

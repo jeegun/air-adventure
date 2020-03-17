@@ -3,12 +3,13 @@
   <li>
     <h3><%= adventure.name %></h3>
     <p><%= adventure.location %></p>
-    <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+    <%#= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
     <p><%= adventure.price %></p>
     <p>Number of guests: <%= adventure.number_of_guests %></p>
+    <%= link_to "See details", adventure_path(adventure) %>
   </li>
   <% end %>
 </ul>
 
-<%= link_to "Create adventure", new_adventure_path  %>
+<%= link_to "Go back to adventures", adventures_path  %>
 

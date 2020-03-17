@@ -1,0 +1,6 @@
+<%= simple_form_for [@adventure, @booking] do |f| %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.input :end_date, as: :date, html5: true %>
+  <%= f.input :nr_of_booked_guests  %>
+  <%= f.submit "Proceed to payment", class: "btn btn-primary" %>
+<% end %>

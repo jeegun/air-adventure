@@ -14,11 +14,11 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    @user = User.current_user
+    @user = current_user # helper method that finds the user instance of the user currently logged in (not a class mathod, that is why User.current_user not needed)
     @adventure = Adventure.new(adventure_params)
     @adventure.user = @user
     if @adventure.save
-      redirect_to adventure_path
+      redirect_to adventure_path(@adventure)
     else
       render :new
     end

@@ -14,7 +14,14 @@ class AdventuresController < ApplicationController
   end
 
   def create
+    @user = User.current_user
     @adventure = Adventure.new(adventure_params)
+    @adventure.user = @user
+    if @adventure.save
+      redirect_to adventure_path
+    else
+      render :new
+    end
   end
 
   private

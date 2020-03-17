@@ -1,1 +1,10 @@
-new.html.erb
+<%= simple_form_for @adventures do |f| %>
+  <%= f.input :name %>
+  <%= f.input :number_of_guests %>
+  <%= f.input :price  %>
+  <%= f.input :languages  %>
+  <%= f.input :description  %>
+  <%= f.input :location  %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
+

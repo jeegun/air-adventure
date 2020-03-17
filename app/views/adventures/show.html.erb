@@ -1,0 +1,19 @@
+<!-- IMAGE GOES HERE -->
+<h2><%= @adventure.name %></h2>
+<ul>
+  <li><%= @adventure.number_of_guests %></li>
+  <li><%= @adventure.location %></li> <!-- EVENTUALLY MAKE THIS INTO MAP -->
+  <li><%= @adventure.languages %></li>
+  <li><%= @adventure.description %></li>
+</ul>
+<br>
+<!-- <%= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
+<%= link_to 'Back to list', adventures_path %>
+
+<!-- t.integer "number_of_guests"
+t.string "location"
+t.integer "price"
+t.string "languages"
+t.text "description"
+t.bigint "user_id"
+t.string "name" -->

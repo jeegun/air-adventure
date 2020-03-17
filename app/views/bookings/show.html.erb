@@ -1,0 +1,9 @@
+<h1><%= @booking.adventure.name %></h1>
+<p><%= @booking.user.email %></p>
+<p><%= @booking.start_date %> - <%= @booking.end_date %></p>
+<%#= cl_image_tag @booking.adventure.photo.key, height: 300, width: 400, crop: :fill %>
+<p><%= @booking.adventure.location %></p>
+<p><%= @booking.adventure.description %></p>
+<p><%= @booking.nr_of_booked_guests %> </p>
+<p><%= @booking.total_price %> </p>
+

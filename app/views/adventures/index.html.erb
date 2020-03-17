@@ -3,9 +3,8 @@
   <li>
     <h3><%= adventure.name %></h3>
     <p><%= adventure.location %></p>
+    <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
     <p><%= adventure.price %></p>
-    <p><%= adventure.description %></p>
-    <p>Available languages: <%= adventure.languages %></p>
     <p>Number of guests: <%= adventure.number_of_guests %></p>
   </li>
   <% end %>

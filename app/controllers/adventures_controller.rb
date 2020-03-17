@@ -1,2 +1,36 @@
 class AdventuresController < ApplicationController
+
+  before_action :set_adventure, only: [:show]
+
+  def index
+    @adventures = Adventure.all
+  end
+
+  def show
+  end
+
+  def new
+    @adventure = Adventure.new
+  end
+
+  def create
+    @user = current_user # helper method that finds the user instance of the user currently logged in (not a class mathod, that is why User.current_user not needed)
+    @adventure = Adventure.new(adventure_params)
+    @adventure.user = @user
+    if @adventure.save
+      redirect_to adventure_path(@adventure)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def set_adventure
+    @adventure = Adventure.find(params[:id])
+  end
+
+  def adventure_params
+    params.require(:adventure).permit(:name, :description, :location, :price, :languages, :number_of_guests)
+  end
 end

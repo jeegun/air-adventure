@@ -25,19 +25,19 @@
       <div class="card-show">
         <%= link_to 'Back to list', adventures_path, class: "btn btn-warning w-100"%>
       </div>
-
     </div>
 
-
     <div class="col-4">
+      <div class="sticky-top">
       <div class="card-show">
-        <h3>X€</h3>
+        <h3><%= @adventure.price %>€</h3>
         <p>(Price per day)</p>
         <h4> Start date </h4>
         <p>ADD FORM</p>
         <h4> End date date </h4>
         <p>ADD FORM</p>
         <a href="#" class="btn btn-primary w-100">Request booking</a>
+      </div>
       </div>
     </div>
   </div>

@@ -1,3 +1,15 @@
 .btn-adventure{
   font-size: 1.5rem;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #00A99D;
+  transition: background 0.3s ease;
+  margin-right: 2rem;
+}
+
+.btn-adventure:hover {
+  background: #2e8a83;
+  color: white;
+  text-decoration: none;
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-4 col-sm-8">
+    <div class="card col-12 pt-3 pb-3">
       <br>
       <h1>List an adventure</h1>
       <br>
@@ -12,9 +12,8 @@
       <%= f.input :description  %>
       <%= f.input :location  %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit "List adventure", class: "btn btn-primary" %>
+      <%= f.submit "Add Adventure", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
 </div>
-

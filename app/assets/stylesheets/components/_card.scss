@@ -47,3 +47,7 @@ p {
   max-width: 75ch;
   font-style: italic;
 }
+
+.card.new-form {
+  overflow: scroll;
+}

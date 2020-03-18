@@ -1,17 +1,12 @@
 <div class="cards-and-map">
-  <div class="container-fluid">
-    <div class="adventure-cards">
-       <div class="row">
-        <div class="card create w-100">
-          <%= link_to "Create a new adventure", new_adventure_path, class: "btn btn-warning w-100" %>
-         </div>
-       </div>
-
-      <div class="row">
+    <div class="card-grid">
         <% @adventures.each do |adventure| %>
-          <div class="col-sm">
             <div class="card" style="width: 18rem;">
-             <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
+              <% if adventure.photo.key? %>
+                <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80", height: 300, width: 400, crop: :fill %>
+              <% end %>
               <div class="card-body">
                 <h3 class="card-title"> <strong><%= adventure.name %></strong></h3>
                 <p class="card-text"><%= adventure.description %></p>
@@ -25,11 +20,8 @@
                   <%= link_to "Go on an adventure!", adventure, class: "btn btn-primary w-100" %>
               </div>
             </div>
-          </div>
         <% end %>
-      </div>
     </div>
-  </div>
 
   <div class="map">
     <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiamdrYnVybmVyIiwiYSI6ImNrN3Z3MW5nYzAyNjYzbnFuMnB5aW4yNzMifQ.oWMlL1-03HBJ-sCks4MeMg'>

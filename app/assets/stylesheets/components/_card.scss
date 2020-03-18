@@ -4,11 +4,21 @@
   background-color: rgb(240,240,240);
 }
 
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  flex-grow: 1;
+  padding: 0 35px;
+  -webkit-box-flex: 1;
+}
+
 .card {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  height: 650px;
 }
 
 .create {

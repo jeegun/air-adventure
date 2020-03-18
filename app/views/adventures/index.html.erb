@@ -2,7 +2,7 @@
     <div class="card-grid">
         <% @adventures.each do |adventure| %>
             <div class="card" style="width: 18rem;">
-              <% if adventure.photo.key? %>
+              <% if adventure.photo.attached? %>
                 <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
                 <%= image_tag "https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80", height: 300, width: 400, crop: :fill %>

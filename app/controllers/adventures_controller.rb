@@ -3,10 +3,22 @@ class AdventuresController < ApplicationController
   before_action :set_adventure, only: [:show]
 
   def index
-    @adventures = Adventure.all
+    @adventures = Adventure.geocoded #returns flats with coordinates
+
+    @markers = @adventures.map do |adventure|
+      {
+        lat: adventure.latitude,
+        lng: adventure.longitude
+      }
+    end
   end
 
   def show
+    @markers =
+      [{
+        lat: @adventure.latitude,
+        lng: @adventure.longitude
+      }]
   end
 
   def new

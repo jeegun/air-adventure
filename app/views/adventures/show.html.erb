@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-8">
       <div class="card-show">
-        <img src="https://lonelyplanetimages.imgix.net/copilot/images/interest/adventure-travel.jpg?auto=compress&h=800" alt="">
+        <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
         <h2><%= @adventure.name %></h2>
           <li><%= @adventure.number_of_guests %></li>
           <li><%= @adventure.languages %></li>
@@ -13,7 +13,7 @@
       <div class="card-show">
         <h3>Meetup point for your adventure:</h3>
         <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
-        <img src="https://lh3.googleusercontent.com/-bQzIWFMAYus/WXy3WDcphBI/AAAAAAAAAMs/unOi6HiEoi4VWaM0WiP5q32q9zDbIhUvwCLcBGAs/s1600/7-29-2017%2B11-14-59%2BAM.jpg" alt="">
+        <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiamdrYnVybmVyIiwiYSI6ImNrN3Z3MW5nYzAyNjYzbnFuMnB5aW4yNzMifQ.oWMlL1-03HBJ-sCks4MeMg'>
       </div>
 
       <div class="card-show">

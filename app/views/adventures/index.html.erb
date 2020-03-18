@@ -11,8 +11,7 @@
         <% @adventures.each do |adventure| %>
           <div class="col-sm">
             <div class="card" style="width: 18rem;">
-              <img src="https://www.fluxmagazine.com/wp-content/uploads/2019/07/Adventure-Web-1.jpg" class="card-img-top" alt="...">
-<!--               <#%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %> -->
+             <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
               <div class="card-body">
                 <h3 class="card-title"> <strong><%= adventure.name %></strong></h3>
                 <p class="card-text"><%= adventure.description %></p>
@@ -33,6 +32,6 @@
   </div>
 
   <div class="map">
-    <img src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="">
+    <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiamdrYnVybmVyIiwiYSI6ImNrN3Z3MW5nYzAyNjYzbnFuMnB5aW4yNzMifQ.oWMlL1-03HBJ-sCks4MeMg'>
   </div>
 </div>

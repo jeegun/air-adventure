@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Add a new adventure", new_adventure_path, class: "btn btn-warning" %>
+          <%= link_to "Add a new adventure", new_adventure_path, class: "btn-adventure" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

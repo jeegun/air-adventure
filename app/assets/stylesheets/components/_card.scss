@@ -57,6 +57,12 @@
   height: 550px;
 }
 
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card-show {
   overflow: hidden;
   background: white;

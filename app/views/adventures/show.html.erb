@@ -7,7 +7,7 @@
         <% if @adventure.photo.attached? %>
           <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-          <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
+          <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
         <% end %>
         <h2><%= @adventure.name %></h2>
         <li>No. of guests: <%= @adventure.number_of_guests %></li>

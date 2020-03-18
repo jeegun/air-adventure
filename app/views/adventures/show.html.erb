@@ -5,7 +5,7 @@
     <div class="col-8">
       <div class="card-show">
         <% if @adventure.photo.attached? %>
-          <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
           <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
         <% end %>

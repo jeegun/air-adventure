@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def calculate_total_price
     unit_price = @adventure.price
-    nr_of_days = @booking.end_date - @booking.start_date
+    nr_of_days = @booking.end_date.day - @booking.start_date.day
     nr_of_booked_guests = @booking.nr_of_booked_guests
     @booking.total_price = unit_price * nr_of_days * nr_of_booked_guests
   end

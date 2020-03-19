@@ -5,9 +5,9 @@
     <div class="col-8">
       <div class="card-show">
         <% if @adventure.photo.attached? %>
-          <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-          <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+        <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
         <% end %>
         <h2><%= @adventure.name %></h2>
         <li>No. of guests: <%= @adventure.number_of_guests %></li>
@@ -33,15 +33,15 @@
 
     <div class="col-4">
       <div class="sticky-top">
-      <div class="card-show">
-        <h3><%= @adventure.price %>€</h3>
-        <p>(Price per day)</p>
-        <h4> Start date </h4>
-        <p>ADD FORM</p>
-        <h4> End date date </h4>
-        <p>ADD FORM</p>
-        <a href="#" class="btn btn-primary w-100">Request booking</a>
-      </div>
+        <div class="card-show">
+          <h3><%= @adventure.price %> € / day</h3>
+          <%= simple_form_for [@adventure, @booking] do |f| %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
+          <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
+          <%= f.submit "Request booking", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

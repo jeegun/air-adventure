@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :adventure
+  has_many :reviews
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :nr_of_booked_guests, presence: true

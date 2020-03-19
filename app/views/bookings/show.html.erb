@@ -8,3 +8,12 @@
 <p><%= @booking.total_price %> </p>
 <p><%= @booking.calculate_total_price %></p>
 
+<h2>Reviews</h2>
+<% @booking.reviews.each do |review| %>
+  <h5> <%= review.title %> </h5>
+  <li><%= review.content %></li>
+  <li>Rating: <%= review.rating %></li>
+<% end %>
+
+
+

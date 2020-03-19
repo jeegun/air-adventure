@@ -1,11 +1,13 @@
 .btn-adventure{
   font-size: 1.5rem;
   color: white;
-  padding: 12px 48px;
+  padding: 8px 40px;
   border-radius: 4px;
   background: #00A99D;
   transition: background 0.3s ease;
   margin-right: 2rem;
+  font-size: 20px;
+   white-space: nowrap;
 }
 
 .btn-adventure:hover {
@@ -18,6 +20,7 @@
   text-decoration: none;
   color: white;
   transition: opacity 0.3s ease;
+  font-weight: bold;
 }
 
 .btn-banner:hover {
@@ -25,3 +28,27 @@
   color: black;
 }
 
+.btn-secondary {
+  border: 2px solid #00A99D;
+  color: #00A99D;
+  font-size: 1.5rem;
+  padding: 8px 40px;
+  border-radius: 4px;
+  background-color: white;
+  transition: background 0.3s ease;
+  margin-right: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  color: #2e8a83;
+  border: 2px solid #2e8a83;
+  color: white;
+  text-decoration: none;
+}
+
+#add-review {
+  font-size: 15px;
+}

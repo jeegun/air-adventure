@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :adventures do
     resources :bookings, only: [:new, :create]
   end
+   resources :bookings, only: [:index, :show] do
+    resources :reviews, only: [:new, :create]
+  end
 
-  resources :bookings, only: [:index, :show]
+
 
   get '/dashboard', to: 'pages#dashboard'
 

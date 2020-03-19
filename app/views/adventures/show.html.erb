@@ -15,7 +15,7 @@
         <li>Description: <%= @adventure.description %></li>
       </div>
       <div class="card-show">
-        <h3>Meetup point for your adventure:</h3>
+        <h4>Meetup point:</h4>
         <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
         <div
         id="map"
@@ -24,6 +24,10 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
+      </div>
+
+      <div class="card-show">
+        <h4>Reviews</h4>
       </div>
 
       <div class="card-show">

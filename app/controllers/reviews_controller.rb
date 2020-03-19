@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_booking, only: [:create, :new]
 
+  def new
+    @review = Review.new
+  end
+
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
@@ -11,9 +15,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def new
-    @review = Review.new
-  end
 
   private
 

@@ -101,6 +101,12 @@
   position: relative;
 }
 
+.card li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .card-show li {
   list-style: none;
 }

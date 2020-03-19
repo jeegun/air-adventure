@@ -2,17 +2,16 @@
     <div class="card-grid">
         <% @adventures.each do |adventure| %>
             <div class="card" style="width: 18rem;">
-              <% if adventure.photo.key? %>
+              <% if adventure.photo.attached? %>
                 <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80", height: 300, width: 400, crop: :fill %>
+                <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
               <% end %>
               <div class="card-body">
-                <h3 class="card-title"> <strong><%= adventure.name %></strong></h3>
+                <h5 class="card-title"> <strong><%= adventure.name %></strong></h5>
                 <p class="card-text"><%= adventure.description %></p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Location: <strong><%= adventure.location %></strong></li>
                 <li class="list-group-item">Price: <strong><%= adventure.price %> euros / day</strong></li>
                 <li class="list-group-item">Max # of participants: <strong><%= adventure.number_of_guests %></strong></li>
               </ul>
@@ -25,8 +24,6 @@
 
     <div
       id="map"
-      style="width: 100%;
-      height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>

@@ -33,7 +33,9 @@ puts "creating adventures"
     languages: "English",
     description: Faker::Lorem.paragraph,
     user: user,
-    name: Faker::FunnyName.name
+    name: Faker::FunnyName.name,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
   )
   adventure.save!
 end

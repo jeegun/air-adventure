@@ -4,11 +4,15 @@
   <div class="row">
     <div class="col-8">
       <div class="card-show">
-        <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if @adventure.photo.attached? %>
+          <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
+        <% end %>
         <h2><%= @adventure.name %></h2>
-        <li><%= @adventure.number_of_guests %></li>
-        <li><%= @adventure.languages %></li>
-        <li><%= @adventure.description %></li>
+        <li>No. of guests: <%= @adventure.number_of_guests %></li>
+        <li>Supported languages: <%= @adventure.languages %></li>
+        <li>Description: <%= @adventure.description %></li>
       </div>
       <div class="card-show">
         <h3>Meetup point for your adventure:</h3>

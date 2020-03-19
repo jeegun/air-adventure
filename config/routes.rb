@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :show]
+
+  get '/dashboard', to: 'pages#dashboard'
+
 end

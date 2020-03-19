@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @booking.adventure = @adventure
-    calculate_total_price
+    # calculate_total_price
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -43,10 +43,10 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date, :nr_of_booked_guests)
   end
 
-  def calculate_total_price
-    unit_price = @adventure.price
-    nr_of_days = @booking.end_date.day - @booking.start_date.day
-    nr_of_booked_guests = @booking.nr_of_booked_guests
-    @booking.total_price = unit_price * nr_of_days * nr_of_booked_guests
-  end
+  # def calculate_total_price
+  #   unit_price = @adventure.price
+  #   nr_of_days = @booking.end_date.day - @booking.start_date.day
+  #   nr_of_booked_guests = @booking.nr_of_booked_guests
+  #   @booking.total_price = unit_price * nr_of_days * nr_of_booked_guests
+  # end
 end

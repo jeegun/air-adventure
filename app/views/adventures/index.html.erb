@@ -1,23 +1,25 @@
 <div class="cards-and-map">
-  <div class="card-grid">
-    <% @adventures.each do |adventure| %>
-    <div class="card" style="width: 18rem;">
-      <% if adventure.photo.attached? %>
-      <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-      <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"> <strong><%= adventure.name %></strong></h5>
-        <p class="card-text"><%= adventure.description %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price: <strong><%= adventure.price %> euros / day</strong></li>
-        <li class="list-group-item">Max # of participants: <strong><%= adventure.number_of_guests %></strong></li>
-      </ul>
-      <div class="card-body">
-        <%= link_to "Go on an adventure!", adventure, class: "btn btn-primary w-100" %>
-      </div>
+    <div class="card-grid">
+        <% @adventures.each do |adventure| %>
+            <div class="card" style="width: 24rem;">
+              <% if adventure.photo.attached? %>
+                <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"> <strong><%= adventure.name %></strong></h5>
+                <p class="card-text"><%= adventure.description %></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: <strong><%= adventure.price %> euros / day</strong></li>
+                <li class="list-group-item">Max # of participants: <strong><%= adventure.number_of_guests %></strong></li>
+              </ul>
+              <div class="card-body">
+                  <%= link_to "Go on an adventure!", adventure, class: "btn btn-primary w-100" %>
+              </div>
+            </div>
+        <% end %>
     </div>
     <% end %>
   </div>
@@ -31,3 +33,4 @@
   </div>
 </div>
 </div>
+

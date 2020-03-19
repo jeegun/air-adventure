@@ -9,15 +9,20 @@
         <% else %>
         <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
         <% end %>
-        <h2><%= @adventure.name %></h2>
-        <li>No. of guests: <%= @adventure.number_of_guests %></li>
-        <li>Supported languages: <%= @adventure.languages %></li>
-        <li>Description: <%= @adventure.description %></li>
+        <div class="card-show-price"><i class="fas fa-euro-sign"></i> <%= @adventure.price %></div>
+        <div class="card-show-text">
+          <h2><%= @adventure.name %></h2>
+          <li>No. of guests: <%= @adventure.number_of_guests %></li>
+          <li>Supported languages: <%= @adventure.languages %></li>
+          <li>Description: <%= @adventure.description %></li>
+        </div>
       </div>
       <div class="card-show">
-        <h3>Meetup point for your adventure:</h3>
+        <div class="card-show-text">
+        <h4>Meetup point:</h4>
         <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
-        <div
+      </div>
+      <div
         id="map"
         style="width: 100%;
         height: 400px;"
@@ -27,7 +32,7 @@
       </div>
 
       <div class="card-show">
-        <%= link_to 'Back to list', adventures_path, class: "btn btn-warning w-100"%>
+        <%= link_to 'Back to list', adventures_path, class: "btn btn-adventure w-100"%>
       </div>
     </div>
 
@@ -47,7 +52,6 @@
   </div>
   <!-- <%#= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
 </div>
-
 
 
 <!-- t.integer "number_of_guests"

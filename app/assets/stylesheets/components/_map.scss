@@ -6,6 +6,12 @@
   object-fit: cover;
 }
 
+@media (max-width: 576px) {
+  #map {
+    display:none
+  }
+}
+
 .mapboxgl-popup {
   max-width: 200px;
 }

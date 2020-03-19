@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="card-show">
+
+    <h1>Your adventures</h1>
+    <% Adventure.all.each do |adventure| %>
+      <% if current_user.id == adventure.user_id %>
+      <div class="card-product">
+        <div class="img-adv">
+          <% if adventure.photo.attached? %>
+          <%= cl_image_tag adventure.photo.key%>
+          <% else %>
+          <%= image_tag "https://source.unsplash.com/random"%>
+          <% end %>
+        </div>
+        <div class="card-product-infos">
+          <h2><%= adventure.name %></h2>
+          <p><%= adventure.description %></p>
+          <p>Price per day: <%= adventure.price %>; Number of guests: <%= adventure.number_of_guests %></p>
+        </div>
+      </div>
+       <% else %>
+        <%= nil %>
+      <% end %>
+
+    <% end %>
+    </div>
+
+  <div class="card-show">
+
+    <h1>Your booking requests</h1>
+    <% Booking.all.each do |booking| %>
+    <% if current_user.id == booking.adventure.user_id %>
+    <div class="card-product">
+      <div class="img-adv">
+        <% if booking.adventure.photo.attached? %>
+        <%= cl_image_tag booking.adventure.photo.key%>
+        <% else %>
+        <%= image_tag "https://source.unsplash.com/random"%>
+        <% end %>
+      </div>
+      <div class="card-product-infos">
+        <h2 class="booking">Booking request for <%= booking.adventure.name %> from the <%= booking.start_date %> to the <%= booking.end_date %></h2>
+        <p><%= booking.adventure.description %></p>
+        <p>Price per day: <strong><%= booking.adventure.price %></strong>; Number of guests: <strong><%= booking.adventure.number_of_guests %></strong></p>
+      </div>
+    </div>
+     <% else %>
+        <%= nil %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+</div>

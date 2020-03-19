@@ -1,7 +1,7 @@
 <div class="cards-and-map">
     <div class="card-grid">
         <% @adventures.each do |adventure| %>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 24rem;">
               <% if adventure.photo.attached? %>
                 <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
@@ -28,3 +28,4 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 </div>
+

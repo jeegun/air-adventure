@@ -1,12 +1,13 @@
 .btn-adventure{
   font-size: 1.5rem;
   color: white;
-  padding: 12px 48px;
+  padding: 8px 40px;
   border-radius: 4px;
   background: #00A99D;
   transition: background 0.3s ease;
   margin-right: 2rem;
-  font-weight: bold;
+  font-size: 20px;
+   white-space: nowrap;
 }
 
 .btn-adventure:hover {
@@ -31,13 +32,14 @@
   border: 2px solid #00A99D;
   color: #00A99D;
   font-size: 1.5rem;
-  padding: 12px 48px;
+  padding: 8px 40px;
   border-radius: 4px;
   background-color: white;
   transition: background 0.3s ease;
-  margin-right: 2rem;
+  margin-right: 16px;
   font-size: 20px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {

@@ -8,12 +8,15 @@ class AdventuresController < ApplicationController
     @markers = @adventures.map do |adventure|
       {
         lat: adventure.latitude,
-        lng: adventure.longitude
+        lng: adventure.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { adventure: adventure })
       }
     end
   end
 
   def show
+    @booking = Booking.new
+
     @markers =
       [{
         lat: @adventure.latitude,

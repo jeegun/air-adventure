@@ -1,0 +1,10 @@
+<div class="map-widget">
+  <%= cl_image_tag adventure.photo.key, height: 300, width: 400, crop: :fit, class: "map-widget-photo w-100" %>
+  <div class="map-widget-price"><i class="fas fa-euro-sign"></i>  <%= adventure.price %></div>
+  <h4><strong><%= adventure.name %></strong></h4>
+  <div class="widget-details"><i class="fas fa-map-pin"></i>  <%= adventure.location %></div>
+  <div class="widget-details"><i class="fas fa-user-friends"></i>  <%= adventure.number_of_guests %></div>
+  <%= link_to "Go on an adventure!", adventure, class: "btn btn-primary w-100" %>
+
+
+</div>

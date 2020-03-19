@@ -14,6 +14,8 @@ class AdventuresController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+
     @markers =
       [{
         lat: @adventure.latitude,

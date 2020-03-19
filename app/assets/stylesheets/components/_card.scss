@@ -109,3 +109,46 @@ p {
 .card.new-form {
   overflow: scroll;
 }
+
+// Adventure cards on dashboard
+.card-product {
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin: 24px;
+}
+
+.card-show > h1 {
+  color: #00A99D;
+  text-align: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  font-style: normal;
+
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}

@@ -43,6 +43,8 @@
         <p><%= booking.adventure.description %></p>
         <p>Total price: <strong><%= booking.adventure.price %></p>
       </div>
+      <%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %>
+
     </div>
     <% else %>
     <%= nil %>

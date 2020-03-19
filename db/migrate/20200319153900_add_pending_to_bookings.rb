@@ -1,5 +1,5 @@
 class AddPendingToBookings < ActiveRecord::Migration[5.2]
   def change
-    add_column :bookings, :pending, :integer
+    add_column :bookings, :pending, :boolean
   end
 end

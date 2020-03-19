@@ -1,0 +1,41 @@
+.map-widget {
+  display: block;
+  text-align: left;
+}
+
+.map-widget h4 {
+  padding-top: 8px;
+}
+
+.map-widget p {
+  padding: 4px 0;
+  margin: 0;
+}
+
+.map-widget i {
+  color: #323232;
+}
+
+.map-widget-photo {
+  position: relative;
+}
+
+.map-widget-price {
+  position: absolute;
+  text-align: center;
+  width: 36px;
+  color: white;
+  top: 16px;
+  left: 16px;
+  background-color: #02A99D;
+  border-radius: 4px;
+}
+
+.map-widget-price i {
+  color: white;
+}
+
+.widget-details {
+  border-bottom: 1px solid rgba(0,0,0,0.125);
+  padding: 8px 0;
+}

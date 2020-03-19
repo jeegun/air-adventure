@@ -19,10 +19,10 @@
       </div>
       <div class="card-show">
         <div class="card-show-text">
-        <h4>Meetup point:</h4>
-        <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
-      </div>
-      <div
+          <h4>Meetup point:</h4>
+          <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
+        </div>
+        <div
         id="map"
         style="width: 100%;
         height: 400px;"
@@ -39,13 +39,15 @@
     <div class="col-4">
       <div class="sticky-top">
         <div class="card-show">
-          <h3><%= @adventure.price %> € / day</h3>
-          <%= simple_form_for [@adventure, @booking] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true %>
-          <%= f.input :end_date, as: :date, html5: true %>
-          <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
-          <%= f.submit "Request booking", class: "btn btn-primary" %>
-          <% end %>
+          <div class="card-show-text">
+            <h3><%= @adventure.price %> € / day</h3>
+            <%= simple_form_for [@adventure, @booking] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
+            <%= f.submit "Request booking", class: "btn btn-primary w-100" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

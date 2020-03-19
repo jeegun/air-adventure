@@ -4,12 +4,18 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
-    @review.save
+    if @review.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   def new
-    @review = review.new
+    @review = Review.new
   end
+
+  private
 
   def review_params
      params.require(:review).permit(:title, :rating, :content)

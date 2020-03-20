@@ -22,17 +22,16 @@
 
 .map-widget-price {
   position: absolute;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #323232;
   text-align: center;
-  width: 36px;
-  color: white;
+  padding: 4px 12px;
   top: 16px;
   left: 16px;
-  background-color: #02A99D;
+  background-color: rgba(230,230,230,0.8);
   border-radius: 4px;
-}
-
-.map-widget-price i {
-  color: white;
+  white-space: nowrap;
 }
 
 .widget-details {

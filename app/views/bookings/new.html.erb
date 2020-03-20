@@ -1,6 +1,16 @@
-<%= simple_form_for [@adventure, @booking] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.input :nr_of_booked_guests  %>
-  <%= f.submit "Request booking", class: "btn btn-primary" %>
-<% end %>
+  <div class="form-container">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="new-form col-6 pt-3 pb-3">
+          <div class="form-card">
+            <%= simple_form_for [@adventure, @booking] do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              <%= f.input :nr_of_booked_guests, label: 'Number of guests'%>
+              <%= f.submit "Request booking", class: "btn btn-primary btn-block" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

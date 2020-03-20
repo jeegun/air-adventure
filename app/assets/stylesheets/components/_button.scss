@@ -9,6 +9,8 @@
   margin-right: 2rem;
   font-size: 20px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-adventure:hover {
@@ -41,6 +43,8 @@
   font-size: 20px;
   font-weight: bold;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-secondary:hover {

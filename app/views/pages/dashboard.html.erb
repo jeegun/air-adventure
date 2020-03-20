@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your ACCEPTED booking requests</h2>
-        <% Booking.all.each do |booking| %>
+        <% Booking.where(status: "accept").each do |booking| %>
           <div class="card-product">
         <div class="d-flex">
           <div class="img-adv">
@@ -36,7 +36,7 @@
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your PENDING booking requests</h2>
-        <% Booking.all.each do |booking| %>
+        <% Booking.where(status: "pending").each do |booking| %>
           <div class="card-product">
         <div class="d-flex">
           <div>

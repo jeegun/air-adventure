@@ -2,84 +2,112 @@
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your ACCEPTED booking requests</h2>
+      <% raise %>
+      <% if current_user.bookings.where(status: "accept").empty? %>
+      <p>You have no accepted bookings</p>
+      <% else %>
       <% Booking.all.each do |booking| %>
-        <% if current_user.id == booking.adventure.user_id && booking.status == "accept" %>
-          <div class="card-product">
-            <div class="img-adv">
-              <% if booking.adventure.photo.attached? %>
-                <%= cl_image_tag booking.adventure.photo.key%>
-              <% else %>
-                <%= image_tag "https://source.unsplash.com/random"%>
-              <% end %>
-            </div>
-            <div class="card-product-infos">
-              <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
-              <p>Dates: <%= booking.start_date %> to <%= booking.end_date %></p>
-              <p>Number of guests: <%= booking.nr_of_booked_guests %></p>
-              <p><strong>Total price: <%= booking.total_price %> €</strong></p>
-            </div>
-            <div class="card-product-link">
-              <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
-            </div>
+      <div class="card-product">
+        <div class="d-flex">
+          <div class="img-adv">
+            <% if booking.adventure.photo.attached? %>
+            <%= cl_image_tag booking.adventure.photo.key, class: "img-dash" %>
+            <% else %>
+            <%= image_tag "https://source.unsplash.com/random"%>
+            <% end %>
           </div>
-        <% else %>
-          <%= nil %>
-        <% end %>
+          <div class="card-product-infos">
+            <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
+            <p>Dates: <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Number of guests: <%= booking.nr_of_booked_guests %></p>
+            <p><strong>Total price: <%= booking.total_price %> €</strong></p>
+          </div>
+        </div>
+        <div>
+          <% if current_user.id == booking.user_id && booking.status == "accept" %>
+          <div class="card-product-link">
+            <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
+          </div>
+          <% else %>
+          <p>ACCEPTED</p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
+
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your PENDING booking requests</h2>
+      <% if current_user.bookings.where(status: "pending").empty? %>
+      <p>You have no pending bookings</p>
+      <% else %>
       <% Booking.all.each do |booking| %>
-        <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
-          <div class="card-product">
-            <div class="img-adv">
-              <% if booking.adventure.photo.attached? %>
-                <%= cl_image_tag booking.adventure.photo.key%>
-              <% else %>
-                <%= image_tag "https://source.unsplash.com/random"%>
-              <% end %>
-            </div>
-            <div class="card-product-infos">
-              <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
-              <p>Requested dates: <%= booking.start_date %> to <%= booking.end_date %></p>
-              <p>Requested number of guests: <%= booking.nr_of_booked_guests %></p>
-              <p><strong>Total price: <%= booking.total_price %> €</strong></p>
-            </div>
-            <div class="card-product-link">
-              <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
-              <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
-            </div>
+      <div class="card-product">
+        <div class="d-flex">
+          <div>
+            <% if booking.adventure.photo.attached? %>
+            <%= cl_image_tag booking.adventure.photo.key, class: "img-dash" %>
+            <% else %>
+            <%= image_tag "https://source.unsplash.com/random"%>
+            <% end %>
           </div>
-        <% else %>
-          <%= nil %>
-        <% end %>
+          <div class="card-product-infos">
+            <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
+            <p>Requested dates: <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Requested number of guests: <%= booking.nr_of_booked_guests %></p>
+            <p><strong>Total price: <%= booking.total_price %> €</strong></p>
+          </div>
+        </div>
+        <div>
+          <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
+          <div class="card-product-link">
+            <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
+            <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
+          </div>
+          <% else %>
+          <p>PENDING</p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
+
+
+
+
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Adventures you're hosting</h2>
+      <% if current_user.adventures.empty? %>
+      <p>You are not hosting any adventures</p>
+      <% else %>
       <% Adventure.all.each do |adventure| %>
-        <% if current_user.id == adventure.user_id %>
-          <div class="card-product">
-            <div class="img-adv">
+      <% if current_user.id == adventure.user_id %>
+      <div class="card-product">
+        <div class="d-flex">
+          <div class="img-adv">
             <% if adventure.photo.attached? %>
-              <%= cl_image_tag adventure.photo.key%>
+            <%= cl_image_tag adventure.photo.key, class: "img-dash" %>
             <% else %>
-              <%= image_tag "https://source.unsplash.com/random"%>
+            <%= image_tag "https://source.unsplash.com/random"%>
             <% end %>
-            </div>
-            <div class="card-product-infos">
-              <h2><%= link_to "#{adventure.name}", adventure_path(adventure) %></h2>
-              <p><%= adventure.description %></p>
-              <p><%= adventure.price %> € / day / guest; Guest capacity: <%= adventure.number_of_guests %></p>
-            </div>
           </div>
-        <% else %>
-          <%= nil %>
-        <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to "#{adventure.name}", adventure_path(adventure) %></h2>
+            <p><%= adventure.description %></p>
+            <p><%= adventure.price %> € / day / guest; Guest capacity: <%= adventure.number_of_guests %></p>
+          </div>
+        </div>
+      </div>
+      <% else %>
+      <%= nil %>
+      <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>

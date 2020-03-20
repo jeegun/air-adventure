@@ -3,6 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
+
       <div class="card-show">
         <% if @adventure.photo.attached? %>
         <%= cl_image_tag @adventure.photo.key, height: 300, width: 400, crop: :fill %>
@@ -17,12 +18,13 @@
           <li>Description: <%= @adventure.description %></li>
         </div>
       </div>
+
       <div class="card-show">
         <div class="card-show-text">
-        <h4>Meetup point:</h4>
-        <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
-      </div>
-      <div
+          <h4>Meetup point:</h4>
+          <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
+        </div>
+        <div
         id="map"
         style="width: 100%;
         height: 400px;"
@@ -32,26 +34,50 @@
       </div>
 
       <div class="card-show">
-        <%= link_to 'Back to list', adventures_path, class: "btn btn-adventure w-100"%>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="sticky-top">
-        <div class="card-show">
-          <h3><%= @adventure.price %> € / day</h3>
-          <%= simple_form_for [@adventure, @booking] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true %>
-          <%= f.input :end_date, as: :date, html5: true %>
-          <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
-          <%= f.submit "Request booking", class: "btn btn-primary" %>
+        <div class="card-show-text">
+          <h4>Reviews</h2>
+          </div>
+          <% @adventure.bookings.each do |booking| %>
+          <% booking.reviews.each do |review| %>
+          <div class="review">
+            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <div class="review-content">
+              <div class="review-rating d-flex">
+                <h4><%= review.title %></h4>
+                <div class="review-rating-stars d-flex">
+                  <% review.rating.times do %>
+                    <p>&#9733</p>
+                  <% end %>
+                </div>
+              </div>
+              <p><%= review.content %></p>
+            </div>
+          </div>
           <% end %>
+          <% end %>
+        </div>
+
+        <div class="card-show">
+          <%= link_to 'Back to list', adventures_path, class: "btn btn-adventure w-100"%>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="sticky-top">
+          <div class="card-show">
+            <h3><%= @adventure.price %> € / day</h3>
+            <%= simple_form_for [@adventure, @booking] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
+            <%= f.submit link_to "Request booking", dashboard_path, class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+    <!-- <%#= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
   </div>
-  <!-- <%#= link_to 'Book Adventure!', new_adventure_booking_path(@adventure) %> -->
-</div>
 
 
 <!-- t.integer "number_of_guests"

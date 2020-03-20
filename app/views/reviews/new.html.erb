@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="new-form col-12 pt-3 pb-3">
+
+      <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :rating, as: :integer %>
+      <%= f.input :content  %>
+      <%= f.submit "Add review", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

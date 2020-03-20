@@ -7,16 +7,17 @@
       <% else %>
       <%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
       <% end %>
+      <div class="card-index-price"><i class="fas fa-euro-sign"></i> <%= adventure.price %></div>
       <div class="card-body">
         <h5 class="card-title"> <strong><%= adventure.name %></strong></h5>
         <p class="card-text"><%= adventure.description %></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price: <strong><%= adventure.price %> euros / day</strong></li>
-        <li class="list-group-item">Max # of participants: <strong><%= adventure.number_of_guests %></strong></li>
+        <li class="list-group-item"><i class="fas fa-user-friends"></i><%= adventure.number_of_guests %></li>
+        <li class="list-group-item"><i class="fas fa-map-pin"></i>   <%= adventure.location %> </li>
       </ul>
       <div class="card-body">
-        <%= link_to "Go on an adventure!", adventure, class: "btn btn-adventure w-100" %>
+        <%= link_to "Let's do this!", adventure, class: "btn btn-adventure w-100" %>
       </div>
     </div>
     <% end %>

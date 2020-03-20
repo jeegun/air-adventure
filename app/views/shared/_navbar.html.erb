@@ -12,6 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
+          <%= link_to "Find adventures", adventures_path, class: "btn btn-adventure" %>
           <%= link_to "Add adventure", new_adventure_path, class: "btn btn-secondary" %>
         </li>
         <li class="nav-item dropdown">

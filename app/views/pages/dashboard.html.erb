@@ -2,7 +2,6 @@
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your ACCEPTED booking requests</h2>
-      <% raise %>
       <% if current_user.bookings.where(status: "accept").empty? %>
       <p>You have no accepted bookings</p>
       <% else %>

@@ -14,12 +14,7 @@
             <%= f.input :location  %>
             <br>
             <!-- photo button -->
-            <label class="btn btn-secondary btn-block">
-              Add a photo! *
-              <span style="display:none;">
-                <%= f.input :photo, as: :file %>
-              </span>
-            </label>
+            <%= f.input :photo, as: :file, class: "btn btn-secondary" %>
             <br>
 
             <!-- submit photo button -->

@@ -53,3 +53,23 @@
 #add-review {
   font-size: 15px;
 }
+
+.btn-cta{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 4px;
+  background: #00A99D;
+  transition: background 0.3s ease;
+  margin-right: 2rem;
+  font-size: 25px;
+  white-space: nowrap;
+  margin-top: 2rem;
+}
+
+.btn-cta:hover {
+  background: #2e8a83;
+  color: white;
+  text-decoration: none;
+}

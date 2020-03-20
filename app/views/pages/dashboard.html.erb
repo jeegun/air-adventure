@@ -3,10 +3,10 @@
     <div class="card-show" id="card-dashboard">
       <h2>Your ACCEPTED booking requests</h2>
       <% if current_user.bookings.where(status: "accept").empty? %>
-      <p>You have no accepted bookings</p>
+        <p>You have no accepted bookings</p>
       <% else %>
-      <% Booking.all.each do |booking| %>
-      <div class="card-product">
+        <% Booking.all.each do |booking| %>
+          <div class="card-product">
         <div class="d-flex">
           <div class="img-adv">
             <% if booking.adventure.photo.attached? %>
@@ -24,15 +24,15 @@
         </div>
         <div>
           <% if current_user.id == booking.user_id && booking.status == "accept" %>
-          <div class="card-product-link">
-            <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
-          </div>
+            <div class="card-product-link">
+              <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
+            </div>
           <% else %>
-          <p>ACCEPTED</p>
+            <p>ACCEPTED</p>
           <% end %>
         </div>
-      </div>
-      <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -41,10 +41,10 @@
     <div class="card-show" id="card-dashboard">
       <h2>Your PENDING booking requests</h2>
       <% if current_user.bookings.where(status: "pending").empty? %>
-      <p>You have no pending bookings</p>
+        <p>You have no pending bookings</p>
       <% else %>
-      <% Booking.all.each do |booking| %>
-      <div class="card-product">
+        <% Booking.all.each do |booking| %>
+          <div class="card-product">
         <div class="d-flex">
           <div>
             <% if booking.adventure.photo.attached? %>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div>
-          <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
+           <% if current_user == booking.adventure.user && booking.status == "pending" %>
           <div class="card-product-link">
             <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
             <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
@@ -70,8 +70,8 @@
           <p>PENDING</p>
           <% end %>
         </div>
-      </div>
-      <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -83,7 +83,7 @@
     <div class="card-show" id="card-dashboard">
       <h2>Adventures you're hosting</h2>
       <% if current_user.adventures.empty? %>
-      <p>You are not hosting any adventures</p>
+        <p>You are not hosting any adventures</p>
       <% else %>
       <% Adventure.all.each do |adventure| %>
       <% if current_user.id == adventure.user_id %>

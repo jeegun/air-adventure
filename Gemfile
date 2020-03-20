@@ -34,3 +34,6 @@ group :development, :test do
   gem 'dotenv-rails'
 
 end
+
+gem 'pg_search', '~> 2.3.0'
+

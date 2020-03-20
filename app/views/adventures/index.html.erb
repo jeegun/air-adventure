@@ -1,4 +1,8 @@
 <div class="cards-and-map">
+
+  <div class="cards-and-search">
+      <%= render 'adventures/search' %>
+
   <div class="card-grid">
     <% @adventures.each do |adventure| %>
     <div class="card">
@@ -21,6 +25,8 @@
       </div>
     </div>
     <% end %>
+  </div>
+
   </div>
 
   <div

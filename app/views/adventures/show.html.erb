@@ -1,6 +1,6 @@
 <!-- IMAGE GOES HERE -->
 
-<div class="container">
+<div class="container pt-3">
   <div class="row">
     <div class="col-8">
 
@@ -11,18 +11,20 @@
         <%= image_tag "https://source.unsplash.com/random/400x300", crop: :fill, class: "pb-3" %>
         <% end %>
         <div class="card-show-price"><i class="fas fa-euro-sign"></i> <%= @adventure.price %></div>
-        <div class="card-show-text">
-          <h2><%= @adventure.name %></h2>
-          <li>No. of guests: <%= @adventure.number_of_guests %></li>
-          <li>Supported languages: <%= @adventure.languages %></li>
-          <li>Description: <%= @adventure.description %></li>
+        <div class="card-body">
+          <h2 class="card-title"><strong><%= @adventure.name %></strong></h2>
+          <p class="card-text"><em><%= @adventure.description %></em></p>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fas fa-user-friends"></i><%= @adventure.number_of_guests %></li>
+          <li class="list-group-item"><i class="fas fa-globe"></i><%= @adventure.languages %></li>
+        </ul>
       </div>
 
       <div class="card-show">
         <div class="card-show-text">
-          <h4>Meetup point:</h4>
-          <h5><%= @adventure.location %></h5> <!-- EVENTUALLY MAKE THIS INTO MAP -->
+          <h3 class="card-title"><strong>Meetup point:</strong></h3>
+          <p class="card-text"><i class="fas fa-map-pin"></i><%= @adventure.location %></p>
         </div>
         <div
         id="map"
@@ -36,7 +38,7 @@
       <div class="card-show">
         <div class="card-show-text">
           <h4>Reviews</h2>
-          </div>
+        </div>
           <% @adventure.bookings.each do |booking| %>
           <% booking.reviews.each do |review| %>
           <div class="review">
@@ -46,7 +48,7 @@
                 <h4><%= review.title %></h4>
                 <div class="review-rating-stars d-flex">
                   <% review.rating.times do %>
-                    <p>&#9733</p>
+                  <p>&#9733</p>
                   <% end %>
                 </div>
               </div>
@@ -65,13 +67,23 @@
       <div class="col-4">
         <div class="sticky-top">
           <div class="card-show">
-            <h3><%= @adventure.price %> € / day</h3>
+            <div class="booking-card-main">
+            <h3 class="card-title"><strong>Book adventure</strong></h3>
+            <p class="card-text"><%= @adventure.price %> € / day</p>
+            </div>
+            <div class="card-body">
             <%= simple_form_for [@adventure, @booking] do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
             <%= f.input :nr_of_booked_guests, label: 'Number of guests' %>
-            <%= f.submit link_to "Request booking", dashboard_path, class: "btn btn-primary" %>
+            <label class="btn btn-secondary btn-block">
+              Request booking
+              <span style="display:none;">
+                <%= f.submit link_to "Request booking", dashboard_path, class: "btn btn-primary" %>
+              </span>
+            </label>
             <% end %>
+            </div>
           </div>
         </div>
       </div>

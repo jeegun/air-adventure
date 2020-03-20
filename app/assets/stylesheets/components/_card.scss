@@ -97,8 +97,25 @@
   margin-bottom: 16px;
 }
 
+.card-show i {
+  margin-right: 8px;
+}
+
 .card-show img {
   position: relative;
+}
+
+.booking-card-main {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 8px;
+}
+
+.booking-card-main h3 {
+  padding: 16px 16px 0 16px;
+}
+
+.booking-card-main p {
+  padding-left: 16px;
 }
 
 .card li {
@@ -111,15 +128,22 @@
   list-style: none;
 }
 
+
+.card-details {
+  border-bottom: 1px solid black;
+  padding-bottom: 16px;
+}
+
 .card-show-price {
   position: absolute;
   font-size: 16px;
-  color: white;
+  font-weight: bolder;
+  color:  #323232;
   text-align: center;
   padding: 4px 12px;
   top: 16px;
   left: 32px;
-  background-color: #02A99D;
+  background-color: rgba(230,230,230,0.8);
   border-radius: 4px;
   white-space: nowrap;
 }

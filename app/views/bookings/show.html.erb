@@ -1,19 +1,18 @@
-<h1><%= @booking.adventure.name %></h1>
-<p><%= @booking.user.email %></p>
-<p><%= @booking.start_date %> - <%= @booking.end_date %></p>
-<%#= cl_image_tag @booking.adventure.photo.key, height: 300, width: 400, crop: :fill %>
-<p><%= @booking.adventure.location %></p>
-<p><%= @booking.adventure.description %></p>
-<p><%= @booking.nr_of_booked_guests %> </p>
-<p><%= @booking.total_price %> </p>
-<p><%= @booking.calculate_total_price %></p>
-
-<h2>Reviews</h2>
-<% @booking.reviews.each do |review| %>
-  <h5> <%= review.title %> </h5>
-  <li><%= review.content %></li>
-  <li>Rating: <%= review.rating %></li>
-<% end %>
-
-
-
+<div class="confirmation-container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="confirmation-card col-12 pt-3 pb-3">
+        <h2>Booking request submitted!</h2>
+        <p>Your adventure is not confirmed until your host responds to your request.</p>
+        <h3>Booking details</h3>
+        <p>Adventure name: <%= @booking.adventure.name %></p>
+        <p>Dates: <%= @booking.start_date %> to <%= @booking.end_date %></p>
+        <%#= cl_image_tag @booking.adventure.photo.key, height: 300, width: 400, crop: :fill %>
+        <p>Location: <%= @booking.adventure.location %></p>
+        <p>Requested no. of guests: <%= @booking.nr_of_booked_guests %></p>
+        <p><strong>Total due:</strong> <%= @booking.total_price %> €</p>
+        <%= link_to "Book another adventure!", adventures_path %>
+      </div>
+    </div>
+  </div>
+</div>

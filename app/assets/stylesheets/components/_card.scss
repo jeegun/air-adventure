@@ -75,6 +75,9 @@
   margin-bottom: 16px;
   height: 580px;
 }
+.card i {
+  margin-right: 8px;
+}
 
 .card img {
   width: 100%;
@@ -98,6 +101,12 @@
   position: relative;
 }
 
+.card li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .card-show li {
   list-style: none;
 }
@@ -107,11 +116,26 @@
   font-size: 16px;
   color: white;
   text-align: center;
-  width: 48px;
+  padding: 4px 12px;
   top: 16px;
   left: 32px;
   background-color: #02A99D;
   border-radius: 4px;
+  white-space: nowrap;
+}
+
+.card-index-price {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #323232;
+  text-align: center;
+  padding: 4px 12px;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(230,230,230,0.8);
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .card-show-text {

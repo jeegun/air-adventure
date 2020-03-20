@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex">
+<#div class="container-fluid d-flex">
   <div class="card-show" id="card-dashboard">
     <h1>Adventures you're hosting</h1>
     <% Adventure.all.each do |adventure| %>
@@ -27,7 +27,7 @@
   <div class="card-show" id="card-dashboard">
     <h1>Your accepted booking requests</h1>
     <% Booking.all.each do |booking| %>
-      <% if current_user.id == booking.adventure.user_id && booking.status == "accepted" %>
+      <% if current_user.id == booking.adventure.user_id && booking.status == "accept" %>
         <div class="card-product">
           <div class="img-adv">
             <% if booking.adventure.photo.attached? %>
@@ -66,12 +66,12 @@
           <p><%= booking.adventure.description %></p>
           <p>Total price: <strong><%= booking.adventure.price %></p>
         </div>
-          <%= link_to "Accept booking", PATH, method: :patch %>
-          <%= link_to "Decline booking", PATH, method: :patch %>
+          <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+          <%= link_to "Decline", decline_booking_path(booking), method: :patch %>
         </div>
       <% else %>
         <%= nil %>
       <% end %>
     <% end %>
   </div>
-</div>
+<#/div>

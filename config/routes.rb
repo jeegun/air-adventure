@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :show] do
     member do
-      patch 'status'
+      patch "/accept", to: 'bookings#accept'
+      patch "/decline", to: 'bookings#decline'
     end
   end
 

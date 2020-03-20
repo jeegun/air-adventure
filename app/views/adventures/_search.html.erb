@@ -1,0 +1,7 @@
+  <%= form_tag adventures_path, method: :get, class: "search-bar" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an adventure"
+    %>
+  <% end %>

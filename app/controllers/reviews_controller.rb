@@ -7,9 +7,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @adventure = @booking.adventure
     @review.booking = @booking
     if @review.save
-      redirect_to booking_path(@booking)
+      redirect_to adventure_path(@adventure)
     else
       render :new
     end

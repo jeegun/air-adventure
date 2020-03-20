@@ -201,9 +201,15 @@ p {
   align-items: center;
   padding: 12px;
   margin: 24px;
+  justify-content: space-evenly;
 }
 
 .card-show > h1 {
+  color: #00A99D;
+  text-align: center;
+}
+
+.card-show > h2 {
   color: #00A99D;
   text-align: center;
 }
@@ -227,17 +233,20 @@ p {
   margin-bottom: 0;
   margin-top: 8px;
   font-style: normal;
-
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
+  padding: 16px;
+}
+
+.card-product-link {
   padding: 16px;
 }
 
 #card-dashboard {
-  width: 50%;
+  width: 100%;
   margin: 20px;
-  padding: 30px
+  padding: 16px
 }
 
 

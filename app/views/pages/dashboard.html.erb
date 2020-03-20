@@ -2,12 +2,15 @@
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your ACCEPTED booking requests</h2>
+      <% if Booking.all.empty? %>
+        <p>You have no accepted bookings</p>
+      <% else %>
       <% Booking.all.each do |booking| %>
-        <% if current_user.id == booking.adventure.user_id && booking.status == "accept" %>
           <div class="card-product">
+      <div class="d-flex">
             <div class="img-adv">
               <% if booking.adventure.photo.attached? %>
-                <%= cl_image_tag booking.adventure.photo.key%>
+                <%= cl_image_tag booking.adventure.photo.key, class: "img-dash" %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/random"%>
               <% end %>
@@ -18,25 +21,34 @@
               <p>Number of guests: <%= booking.nr_of_booked_guests %></p>
               <p><strong>Total price: <%= booking.total_price %> €</strong></p>
             </div>
+            </div>
+            <div>
+        <% if current_user.id == booking.user_id && booking.status == "accept" %>
             <div class="card-product-link">
               <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
             </div>
-          </div>
         <% else %>
-          <%= nil %>
+          <p>ACCEPTED</p>
         <% end %>
+        </div>
+        </div>
+      <% end %>
       <% end %>
     </div>
   </div>
+
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Your PENDING booking requests</h2>
+      <% if Booking.all.empty? %>
+        <p>You have no pending bookings</p>
+      <% else %>
       <% Booking.all.each do |booking| %>
-        <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
           <div class="card-product">
-            <div class="img-adv">
+            <div class="d-flex">
+            <div>
               <% if booking.adventure.photo.attached? %>
-                <%= cl_image_tag booking.adventure.photo.key%>
+                <%= cl_image_tag booking.adventure.photo.key, class: "img-dash" %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/random"%>
               <% end %>
@@ -47,26 +59,39 @@
               <p>Requested number of guests: <%= booking.nr_of_booked_guests %></p>
               <p><strong>Total price: <%= booking.total_price %> €</strong></p>
             </div>
+            </div>
+            <div>
+          <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
             <div class="card-product-link">
               <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
               <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
             </div>
+          <% else %>
+            <p>PENDING</p>
+          <% end %>
           </div>
-        <% else %>
-          <%= nil %>
-        <% end %>
+        </div>
+      <% end %>
       <% end %>
     </div>
   </div>
+
+
+
+
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
       <h2>Adventures you're hosting</h2>
+      <% if current_user.adventures.empty? %>
+        <p>You are not hosting any adventures</p>
+      <% else %>
       <% Adventure.all.each do |adventure| %>
         <% if current_user.id == adventure.user_id %>
           <div class="card-product">
+        <div class="d-flex">
             <div class="img-adv">
             <% if adventure.photo.attached? %>
-              <%= cl_image_tag adventure.photo.key%>
+              <%= cl_image_tag adventure.photo.key, class: "img-dash" %>
             <% else %>
               <%= image_tag "https://source.unsplash.com/random"%>
             <% end %>
@@ -77,9 +102,11 @@
               <p><%= adventure.price %> € / day / guest; Guest capacity: <%= adventure.number_of_guests %></p>
             </div>
           </div>
+      </div>
         <% else %>
           <%= nil %>
         <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>

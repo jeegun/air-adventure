@@ -201,7 +201,14 @@ p {
   align-items: center;
   padding: 12px;
   margin: 24px;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.card-product .img-dash {
+  object-fit: cover;
+  height: 140px;
+  crop: fill;
+  margin: 4px;
 }
 
 .card-show > h1 {
@@ -241,6 +248,7 @@ p {
 
 .card-product-link {
   padding: 16px;
+  justify-content: right;
 }
 
 #card-dashboard {

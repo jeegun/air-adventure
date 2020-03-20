@@ -4,7 +4,7 @@
 
       <%= simple_form_for [@booking, @review] do |f| %>
       <%= f.input :title %>
-      <%= f.input :rating, as: :integer %>
+      <%= f.input :rating, input: :integer, collection: 1..5 %>
       <%= f.input :content  %>
       <%= f.submit "Add review", class: "btn btn-primary" %>
       <% end %>

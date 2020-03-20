@@ -7,7 +7,7 @@
   transition: background 0.3s ease;
   margin-right: 2rem;
   font-size: 20px;
-   white-space: nowrap;
+  white-space: nowrap;
 }
 
 .btn-adventure:hover {
@@ -43,9 +43,10 @@
 }
 
 .btn-secondary:hover {
+  border: 2px solid #00A99D;
   color: #2e8a83;
   border: 2px solid #2e8a83;
-  color: white;
+  background-color: rgba(240,240,240,0.8);
   text-decoration: none;
 }
 

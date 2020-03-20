@@ -13,6 +13,11 @@
   -webkit-box-flex: 1;
 }
 
+.card .btn-adventure{
+  font-size: 1.0rem;
+  padding: 8px 0px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 576px) {
   .card-grid {

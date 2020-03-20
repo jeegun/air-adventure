@@ -1,4 +1,12 @@
 .form-container {
   background-image: url('https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80');
-   background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-card {
+  margin-top: 16px;
+  padding: 32px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.2);
+  background-color: rgba(240,240,240,0.8);
 }

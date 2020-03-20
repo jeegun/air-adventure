@@ -5,6 +5,16 @@
 <%= f.input :languages  %>
 <%= f.input :description  %>
 <%= f.input :location  %>
-<%= f.input :photo, as: :file %>
-<%= f.submit "Add Adventure", class: "btn btn-primary btn-block" %>
+
+<!-- photo button -->
+<label class="btn btn-secondary btn-block">
+  Add a photo!
+  <span style="display:none;">
+    <%= f.input :photo, as: :file %>
+  </span>
+</label>
+
+<!-- submit photo button -->
+<%= f.submit "Add Adventure", class: "btn btn-adventure btn-block" %>
+
 <% end %>

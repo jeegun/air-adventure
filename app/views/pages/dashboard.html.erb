@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
-      <h2>Your accepted booking requests</h2>
+      <h2>Your ACCEPTED booking requests</h2>
       <% Booking.all.each do |booking| %>
         <% if current_user.id == booking.adventure.user_id && booking.status == "accept" %>
           <div class="card-product">
@@ -12,15 +12,15 @@
                 <%= image_tag "https://source.unsplash.com/random"%>
               <% end %>
             </div>
-              <div class="card-product-infos">
-                <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
-                <p>Dates: <%= booking.start_date %> to <%= booking.end_date %></p>
-                <p>Number of guests: <%= booking.nr_of_booked_guests %></p>
-                <p><strong>Total price: <%= booking.total_price %> €</strong></p>
-              </div>
-              <div class="card-product-infos">
-                <%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %>
-              </div>
+            <div class="card-product-infos">
+              <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
+              <p>Dates: <%= booking.start_date %> to <%= booking.end_date %></p>
+              <p>Number of guests: <%= booking.nr_of_booked_guests %></p>
+              <p><strong>Total price: <%= booking.total_price %> €</strong></p>
+            </div>
+            <div class="card-product-link">
+              <button><%= link_to "Add review", new_booking_review_path(booking), id: "add-review" %></button>
+            </div>
           </div>
         <% else %>
           <%= nil %>
@@ -30,7 +30,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="card-show" id="card-dashboard">
-      <h2>Your pending booking requests</h2>
+      <h2>Your PENDING booking requests</h2>
       <% Booking.all.each do |booking| %>
         <% if current_user.id == booking.adventure.user_id && booking.status == "pending" %>
           <div class="card-product">
@@ -41,14 +41,16 @@
                 <%= image_tag "https://source.unsplash.com/random"%>
               <% end %>
             </div>
-          <div class="card-product-infos">
-            <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
-            <p>Requested dates: <%= booking.start_date %> to <%= booking.end_date %></p>
-            <p>Requested number of guests: <%= booking.nr_of_booked_guests %></p>
-            <p><strong>Total price: <%= booking.total_price %> €</strong></p>
-          </div>
-            <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
-            <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
+            <div class="card-product-infos">
+              <h2 class="booking"><%= link_to "#{booking.adventure.name}", adventure_path(booking.adventure) %></h2>
+              <p>Requested dates: <%= booking.start_date %> to <%= booking.end_date %></p>
+              <p>Requested number of guests: <%= booking.nr_of_booked_guests %></p>
+              <p><strong>Total price: <%= booking.total_price %> €</strong></p>
+            </div>
+            <div class="card-product-link">
+              <button><%= link_to "Accept", accept_booking_path(booking), method: :patch %></button>
+              <button><%= link_to "Decline", decline_booking_path(booking), method: :patch %></button>
+            </div>
           </div>
         <% else %>
           <%= nil %>

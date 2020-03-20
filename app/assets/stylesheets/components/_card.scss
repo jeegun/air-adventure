@@ -208,6 +208,11 @@ p {
   text-align: center;
 }
 
+.card-show > h2 {
+  color: #00A99D;
+  text-align: center;
+}
+
 .card-product img {
   height: 100%;
   width: 140px;
@@ -230,14 +235,14 @@ p {
 
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
   padding: 16px;
 }
 
 #card-dashboard {
-  width: 50%;
+  width: 100%;
   margin: 20px;
-  padding: 30px
+  padding: 16px
 }
 
 
